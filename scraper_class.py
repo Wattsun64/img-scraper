@@ -15,13 +15,8 @@ class Web_Scraper:
 
         return self.chrome.find_elements_by_css_selector(css)
         
-    def download_img(self, img, path):
-        print(path)
-
-        return True
-
-    def test(self, txt = "Testing"):
-        print(txt)
+    def download_img(self, url, path):
+        print(url, path)
 
         return True
     

@@ -8,6 +8,9 @@ class Build_GUI:
     def start_program(self):
         mainloop()
 
+    def stop_program(self):
+        self.m.destroy()
+
     def create_inputs(self):
         Label(self.m, text="URL").grid(row=0)
         Label(self.m, text="Path").grid(row=1)
@@ -18,14 +21,20 @@ class Build_GUI:
         self.e1.grid(row=0, column=1)
         self.e2.grid(row=1, column=1)
 
-    def create_button(self, txt="Press"):
-        btn = Button(self.m, text=txt, command=self.button_press)
+    def create_button(self):
+        btn1 = Button(self.m, text="Press", command=self.button_press)
+        btn2 = Button(self.m, text="Quit", command=self.stop_program)
 
-        btn.grid(row=3)
+        btn1.grid(row=3)
+        btn2.grid(row=3, column=1)
 
-    def button_press(self):
-        print(self.e2.get())
-
+    def clear_entries(self):
+        self.e1.delete(0, "end")
         self.e2.delete(0, "end")
+        
+    def button_press(self):
+        s = Web_Scraper()
 
-        return True   
+        s.download_img(self.e1.get(), self.e2.get())
+
+        self.clear_entries()
