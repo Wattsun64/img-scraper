@@ -13,15 +13,15 @@ class Build_GUI:
 
     def create_inputs(self):
         Label(self.m, text="URL").grid(row=0)
-        Label(self.m, text="Selector").grid(row=1)
+        Label(self.m, text="Selector").grid(row=0,column=2)
         Label(self.m, text="Path").grid(row=2)
 
         self.e1 = Entry(self.m)
-        self.e2 = Entry(self.m)
+        self.e2 = Entry(self.m, width=10)
         self.e3 = Entry(self.m)
 
         self.e1.grid(row=0, column=1)
-        self.e2.grid(row=1, column=1)
+        self.e2.grid(row=0, column=3)
         self.e3.grid(row=2, column=1)
 
     def create_button(self):
